@@ -1,0 +1,118 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch demo suites",
+            "type": "go",
+            "request": "launch",
+            "mode": "test",
+            "program": "${workspaceFolder}/cmd/e2e_test.go",
+            "args": [
+                "--ginkgo.focus=e2e-demos-suite",
+                "--ginkgo.junit-report=report.xml"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "GITHUB_TOKEN": "${input:ghToken}"
+            }
+        },
+        {
+            "name": "Debug ALL Integration Service Tests",
+            "type": "go",
+            "request": "launch",
+            "mode": "test", 
+            "program": "${workspaceFolder}/cmd/e2e_test.go",
+            "args": [
+                "--ginkgo.focus=integration-service-suite",
+                "--ginkgo.vv"
+            ],
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/.env",
+            "console": "integratedTerminal",
+            "showLog": true
+        },
+        {
+            "name": "Debug Basic E2E Tests (integration.go)",
+            "type": "go",
+            "request": "launch", 
+            "mode": "test",
+            "program": "${workspaceFolder}/cmd/e2e_test.go",
+            "args": [
+                "--ginkgo.focus=Integration Service E2E tests",
+                "--ginkgo.vv"
+            ],
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/.env",
+            "console": "integratedTerminal",
+            "showLog": true
+        },
+        {
+            "name": "Debug GitHub Status Reporting (status-reporting-to-pullrequest.go)",
+            "type": "go", 
+            "request": "launch",
+            "mode": "test",
+            "program": "${workspaceFolder}/cmd/e2e_test.go",
+            "args": [
+                "--ginkgo.label-filter=github-status-reporting",
+                "--ginkgo.vv"
+            ],
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/.env",
+            "console": "integratedTerminal",
+            "showLog": true
+        },
+        {
+            "name": "Debug GitLab Status Reporting (gitlab-integration-reporting.go)",
+            "type": "go",
+            "request": "launch",
+            "mode": "test", 
+            "program": "${workspaceFolder}/cmd/e2e_test.go",
+            "args": [
+                "--ginkgo.label-filter=gitlab-status-reporting",
+                "--ginkgo.vv"
+            ],
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/.env",
+            "console": "integratedTerminal",
+            "showLog": true
+        },
+        {
+            "name": "Debug Group Snapshots (group-snapshots-tests.go)",
+            "type": "go",
+            "request": "launch",
+            "mode": "test",
+            "program": "${workspaceFolder}/cmd/e2e_test.go", 
+            "args": [
+                "--ginkgo.label-filter=group-snapshot-creation",
+                "--ginkgo.vv"
+            ],
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/.env",
+            "console": "integratedTerminal",
+            "showLog": true
+        },
+        {
+            "name": "Debug Pipeline Resolution Tests (pipelinerun-resolution.go)",
+            "type": "go",
+            "request": "launch",
+            "mode": "test",
+            "program": "${workspaceFolder}/cmd/e2e_test.go",
+            "args": [
+                "--ginkgo.label-filter=pipelinerun-resolution",
+                "--ginkgo.vv"
+            ],
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/.env",
+            "console": "integratedTerminal",
+            "showLog": true
+        }
+    ],
+    "inputs": [
+        {
+            "id": "ghToken",
+            "type": "promptString",
+            "description": "Github token",
+            "password": true
+        }
+    ]
+}

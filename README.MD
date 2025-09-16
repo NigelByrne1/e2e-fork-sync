@@ -44,3 +44,4 @@ gh repo sync YOUR_ORG_NAME/konflux-test-integration-status-report -b main
 gh repo sync YOUR_ORG_NAME/devfile-sample-hello-world -b default
 gh repo sync YOUR_ORG_NAME/strategy-configs -b main
 gh repo sync YOUR_ORG_NAME/hacbs-test-project -b main
+gh repo sync YOUR_ORG_NAME/infra-deployments -b main

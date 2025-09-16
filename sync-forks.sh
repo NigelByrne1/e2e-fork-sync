@@ -43,6 +43,9 @@ gh repo sync $user_org/strategy-configs -b main
 echo "Sync redhat-appstudio-qe/hacbs-test-project"
 gh repo sync $user_org/hacbs-test-project -b main
 
+echo "Sync redhat-appstudio-qe/infradeployments"
+gh repo sync $user_org/infra-deployments -b main
+
 echo ""
 echo "Synchronization process finished."
 echo "...................................."
